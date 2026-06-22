@@ -1,6 +1,7 @@
 /*
   组编号：待填写
-  组长/组员/学号/分工：待填写
+  组长：高乐霞（学号待填写）
+  组员：岳林（学号待填写）
   用途：课程数据大屏科技风可视化样式
 */
 :root {
@@ -205,7 +206,7 @@
 
 .cover-member-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
 }
 
@@ -1132,7 +1133,7 @@ h1 {
   z-index: 5;
   display: grid;
   gap: 7px;
-  width: 176px;
+  width: 226px;
   padding: 8px 10px;
   border: 1px solid rgba(112, 196, 222, 0.28);
   border-radius: 4px;
@@ -1143,14 +1144,15 @@ h1 {
 
 .map-data-legend > div {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: max-content max-content minmax(0, 1fr);
   align-items: center;
-  gap: 7px;
+  gap: 8px;
 }
 
 .map-data-legend strong {
   color: var(--text);
   font-size: 10px;
+  white-space: nowrap;
 }
 
 .province-ramp {
@@ -1198,6 +1200,11 @@ h1 {
 }
 
 .map-data-legend small {
+  line-height: 1.35;
+  white-space: normal;
+}
+
+.map-data-legend > div:first-child small {
   white-space: nowrap;
 }
 
@@ -2627,7 +2634,7 @@ body.drawer-open {
 }
 
 .cover-screen .cover-member {
-  min-height: 92px;
+  min-height: 108px;
   padding: 12px 13px;
   background: rgba(5, 23, 35, 0.76);
   backdrop-filter: blur(8px);
@@ -2644,11 +2651,10 @@ body.drawer-open {
 }
 
 .cover-screen .cover-member .member-task {
-  overflow: hidden;
   color: #7fa4b6;
   font-size: 10px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.55;
+  white-space: normal;
 }
 
 .cover-screen .cover-footer {
@@ -2684,7 +2690,7 @@ body.drawer-open {
   }
 
   .cover-member-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .cover-screen .cover-topics {

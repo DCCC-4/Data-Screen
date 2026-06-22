@@ -1,16 +1,25 @@
 /*
   组编号：待填写
-  组长/组员/学号/分工：待填写
+  组长：高乐霞（学号待填写）
+  组员：岳林（学号待填写）
   用途：中国人工智能算法提供商数据大屏最终交付逻辑
 */
 (function () {
   const teamInfo = {
     group: "组编号：________",
     members: [
-      { role: "组长", name: "", studentId: "", task: "" },
-      { role: "组员", name: "", studentId: "", task: "" },
-      { role: "组员", name: "", studentId: "", task: "" },
-      { role: "组员", name: "", studentId: "", task: "" },
+      {
+        role: "组长",
+        name: "高乐霞",
+        studentId: "",
+        task: "项目统筹、数据大屏架构设计与全部代码开发、交互功能实现、视觉优化及视频素材采集",
+      },
+      {
+        role: "组员",
+        name: "岳林",
+        studentId: "",
+        task: "数据口径梳理、数据清洗与字段补全、分析结果核验及成果展示视频制作",
+      },
     ],
   };
   const allFacts = window.COMPACT_FACTS || [];
