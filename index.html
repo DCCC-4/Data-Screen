@@ -1,0 +1,357 @@
+<!doctype html>
+<!--
+  组编号：待填写
+  组长：待填写（学号、任务）
+  组员：待填写（学号、任务）
+  项目：中国人工智能算法提供商数据大屏
+-->
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>中国人工智能算法提供商数据大屏</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="./css/base.css" />
+  </head>
+  <body>
+    <section id="coverScreen" class="cover-screen" aria-labelledby="coverTitle">
+      <img class="cover-map" src="./assets/cover/china-ai-network-hero.png" alt="" aria-hidden="true" />
+      <div class="cover-shade"></div>
+      <div class="cover-content">
+        <header class="cover-header">
+          <span>DATA VISUALIZATION · 2026 SPRING</span>
+          <strong id="coverGroup">组编号：________</strong>
+        </header>
+        <div class="cover-title">
+          <div class="cover-kicker">
+            <span>COURSE PROJECT 2026</span>
+            <i></i>
+            <strong>国家网信办算法备案数据</strong>
+          </div>
+          <h1 id="coverTitle">中国人工智能算法提供商数据大屏</h1>
+          <h2>基于 2022.08—2026.05 期间 8,008 条算法备案记录，观察我国人工智能算法服务商的空间集聚、发展演进、产业结构与未来趋势。</h2>
+          <div class="cover-topics" aria-label="核心分析主题">
+            <span><b>01</b>地理分布</span>
+            <span><b>02</b>发展演进</span>
+            <span><b>03</b>结构洞察</span>
+            <span><b>04</b>情景预测</span>
+          </div>
+        </div>
+        <section class="cover-members">
+          <div class="cover-section-title">
+            <span>PROJECT TEAM</span>
+            <h3>小组成员</h3>
+          </div>
+          <div id="coverMemberGrid" class="cover-member-grid"></div>
+        </section>
+        <footer class="cover-footer">
+          <div>
+            <span>课程</span>
+            <strong>数据可视化期末课程作业</strong>
+          </div>
+          <div>
+            <span>指导教师</span>
+            <strong>吴俊 教授</strong>
+          </div>
+          <button id="enterDashboard" type="button">
+            <span>进入数据大屏</span>
+            <b>→</b>
+          </button>
+        </footer>
+      </div>
+    </section>
+
+    <main class="screen-shell">
+      <header class="topbar">
+        <div class="header-meta">
+          <strong id="headerTime">--:--:--</strong>
+          <span id="headerDate">----.--.--</span>
+        </div>
+        <div class="header-title">
+          <p class="eyebrow">2022-08 至 2026-05 · 国家网信办备案数据</p>
+          <h1>中国人工智能算法提供商数据大屏</h1>
+        </div>
+      </header>
+
+      <nav class="view-tabs" aria-label="视图切换">
+        <button class="active" type="button" data-view="overview">全景总览</button>
+        <button type="button" data-view="structure">演进与结构</button>
+        <button type="button" data-view="forecast">预测与决策</button>
+      </nav>
+
+      <section class="filter-bar" aria-label="全局筛选">
+        <div class="filter-grid">
+          <label><span>起始月份</span><select id="filterMonthStart"></select></label>
+          <label><span>结束月份</span><select id="filterMonthEnd"></select></label>
+          <label><span>清单类型</span><select id="filterListType"></select></label>
+          <label><span>省份</span><select id="filterProvince"></select></label>
+          <label><span>城市</span><select id="filterCity"></select></label>
+          <label><span>算法类别</span><select id="filterCategory"></select></label>
+          <label><span>技术代际</span><select id="filterTech"></select></label>
+          <label><span>行业一级</span><select id="filterIndustry"></select></label>
+          <label><span>产品载体</span><select id="filterCarrier"></select></label>
+        </div>
+        <div class="filter-actions">
+          <p id="filterSummary">全量数据</p>
+          <button id="exportView" type="button">导出当前视图</button>
+          <button id="openQuality" type="button">数据口径</button>
+          <button id="resetFilters" type="button">重置</button>
+        </div>
+      </section>
+
+      <section id="sampleWarning" class="sample-warning" hidden></section>
+
+      <section class="kpi-grid" id="kpiGrid" aria-label="基础指标"></section>
+
+      <section class="view-panel active" data-panel="overview">
+      <section class="command-grid">
+        <aside class="side-column">
+          <article class="panel trend-panel">
+            <div class="panel-head">
+              <h2>备案记录与新增主体趋势</h2>
+              <span>月度节奏</span>
+            </div>
+            <div id="trendChart" class="chart trend-chart" aria-label="月度趋势图"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head">
+              <h2>算法类别结构</h2>
+              <span>缺失值单独显示</span>
+            </div>
+            <div id="categoryBars" class="bar-chart compact" aria-label="算法类别结构图"></div>
+            <p id="categoryMeta" class="sample-meta"></p>
+          </article>
+        </aside>
+
+        <section class="center-stage">
+          <article class="panel map-panel">
+            <div class="panel-head">
+              <h2>省级主体分布与重点城市</h2>
+              <span>省份颜色 × 城市圆点 · 点击省份联动</span>
+            </div>
+            <div id="mapPreview" class="map-preview" aria-label="地理分布预览"></div>
+          </article>
+
+          <section class="metric-tiles" id="metricTiles" aria-label="底部指标块"></section>
+        </section>
+
+        <aside class="side-column">
+          <article class="panel">
+            <div class="panel-head">
+              <h2>技术代际结构</h2>
+              <span>G1-G4 与待核验</span>
+            </div>
+            <div id="techStack" class="stack-chart" aria-label="技术代际结构图"></div>
+            <p id="techMeta" class="sample-meta"></p>
+            <div id="qualityList" class="bar-list"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head">
+              <h2>省份主体数 Top10</h2>
+              <span>主体去重口径</span>
+            </div>
+            <div id="provinceBars" class="bar-chart" aria-label="省份排行图"></div>
+          </article>
+        </aside>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="panel">
+          <div class="panel-head">
+            <h2>城市主体数 Top10</h2>
+            <span>主体去重口径</span>
+          </div>
+          <div id="cityBars" class="bar-chart" aria-label="城市排行图"></div>
+        </article>
+
+        <article class="panel scope-panel">
+          <div class="panel-head">
+            <h2>统计口径与数据边界</h2>
+            <span>数据范围与解释限制</span>
+          </div>
+          <ul id="scopeList" class="fact-list"></ul>
+        </article>
+      </section>
+      </section>
+
+      <section class="view-panel" data-panel="structure">
+        <section class="structure-grid">
+          <article class="panel rhythm-panel">
+            <div class="panel-head">
+              <h2>双清单备案节奏</h2>
+              <span>清单类型 × 批次 × 备案月份</span>
+            </div>
+            <div id="releaseRhythm" class="rhythm-chart" aria-label="双清单备案节奏图"></div>
+          </article>
+
+          <article class="panel evolution-panel">
+            <div class="panel-head">
+              <h2>算法类别与技术代际演进</h2>
+              <span>年度有效样本占比，2022 与 2026 为非完整年度</span>
+            </div>
+            <div id="structureEvolution" class="evolution-chart" aria-label="算法类别与技术代际演进图"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head">
+              <h2>行业结构钻取</h2>
+              <span>主体去重口径</span>
+            </div>
+            <div class="segmented-control" id="industryLevelControl" aria-label="行业层级切换">
+              <button class="active" type="button" data-industry-level="行业一级">一级</button>
+              <button type="button" data-industry-level="行业二级">二级</button>
+              <button type="button" data-industry-level="行业三级">三级</button>
+            </div>
+            <div id="industryBars" class="bar-chart" aria-label="行业结构图"></div>
+            <p id="industryMeta" class="sample-meta"></p>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head">
+              <h2>应用载体结构</h2>
+              <span>基于应用产品解析</span>
+            </div>
+            <div id="carrierBars" class="bar-chart" aria-label="应用载体结构图"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head">
+              <h2>登记资本结构</h2>
+              <span>主体口径，非企业实力判断</span>
+            </div>
+            <div id="capitalBars" class="bar-chart" aria-label="注册资本结构图"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head">
+              <h2>企业角色结构</h2>
+              <span>主体去重口径</span>
+            </div>
+            <div id="roleBars" class="bar-chart" aria-label="企业角色结构图"></div>
+            <p id="roleMeta" class="sample-meta"></p>
+          </article>
+
+          <article class="panel wide-panel structure-insight-panel">
+            <div class="panel-head">
+              <h2>演进结论提示</h2>
+              <span>当前数据口径</span>
+            </div>
+            <ul id="structureInsights" class="insight-list"></ul>
+          </article>
+
+          <article class="panel wide-panel">
+            <div class="panel-head">
+              <h2>应用用途主题与典型案例</h2>
+              <span>多标签主题分母为有效主要用途记录</span>
+            </div>
+            <div class="application-insights">
+              <section>
+                <div id="purposeThemes" class="theme-list" aria-label="主要用途主题"></div>
+                <p id="purposeMeta" class="sample-meta"></p>
+              </section>
+              <section id="caseCards" class="case-grid" aria-label="典型案例"></section>
+            </div>
+          </article>
+        </section>
+      </section>
+
+      <section class="view-panel" data-panel="forecast">
+        <section class="forecast-grid">
+          <article class="panel wide-panel">
+            <div class="panel-head">
+              <h2>未来 3-5 年主体数量情景预测</h2>
+              <span>主体首次出现队列 · 末端 6 个队列留后回测</span>
+            </div>
+            <div class="forecast-toolbar">
+              <div class="segmented-control forecast-scenarios" id="forecastScenarioControl" aria-label="预测情景切换">
+                <button type="button" data-scenario="cautious">谨慎</button>
+                <button class="active" type="button" data-scenario="baseline">基准</button>
+                <button type="button" data-scenario="positive">积极</button>
+              </div>
+              <p id="forecastAssumption"></p>
+            </div>
+            <div id="forecastChart" class="chart forecast-chart" aria-label="情景预测图"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head">
+              <h2>模型回测比较</h2>
+              <span>误差越低越优</span>
+            </div>
+            <div id="modelBenchmark" class="model-benchmark" aria-label="预测模型回测比较"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head">
+              <h2>主要省份份额趋势</h2>
+              <span>主体首次备案省份，归一化为 100%</span>
+            </div>
+            <div id="regionForecastBars" class="share-list" aria-label="地域份额预测图"></div>
+          </article>
+
+          <article class="panel wide-panel">
+            <div class="panel-head">
+              <h2>短板证据与对策建议</h2>
+              <span>仅基于备案数据内部结构，不作因果推断</span>
+            </div>
+            <div class="decision-grid">
+              <div id="weaknessMatrix" class="matrix-list" aria-label="短板指标矩阵"></div>
+              <div id="recommendationList" class="recommendation-list" aria-label="对策建议"></div>
+            </div>
+          </article>
+
+          <article class="panel wide-panel method-panel">
+            <div class="panel-head">
+              <h2>预测方法与限制</h2>
+              <span>模型口径与适用范围</span>
+            </div>
+            <div id="forecastMethod" class="method-notes"></div>
+          </article>
+        </section>
+      </section>
+
+      <section class="final-insights panel conclusion-panel">
+        <div class="panel-head">
+          <h2>结论</h2>
+          <span>基于当前筛选数据动态汇总</span>
+        </div>
+        <div id="finalInsights" class="final-insight-grid"></div>
+      </section>
+    </main>
+
+    <div id="detailDrawer" class="detail-drawer" aria-hidden="true">
+      <button class="drawer-backdrop" type="button" data-close-drawer aria-label="关闭详情"></button>
+      <aside class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+        <div class="drawer-head">
+          <div>
+            <span>算法备案案例</span>
+            <h2 id="drawerTitle">案例详情</h2>
+          </div>
+          <button class="drawer-close" type="button" data-close-drawer aria-label="关闭">×</button>
+        </div>
+        <div id="drawerContent" class="drawer-content"></div>
+      </aside>
+    </div>
+
+    <div id="qualityDrawer" class="detail-drawer" aria-hidden="true">
+      <button class="drawer-backdrop" type="button" data-close-quality aria-label="关闭数据口径"></button>
+      <aside class="drawer-panel quality-panel" role="dialog" aria-modal="true" aria-labelledby="qualityTitle">
+        <div class="drawer-head">
+          <div>
+            <span>方法、口径与局限</span>
+            <h2 id="qualityTitle">数据质量说明</h2>
+          </div>
+          <button class="drawer-close" type="button" data-close-quality aria-label="关闭">×</button>
+        </div>
+        <div id="qualityDrawerContent" class="drawer-content quality-content"></div>
+      </aside>
+    </div>
+
+    <script src="./data/compact_facts.js"></script>
+    <script src="./data/record_details.js"></script>
+    <script src="./assets/map/china-provinces.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
