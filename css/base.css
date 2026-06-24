@@ -968,52 +968,23 @@ h1 {
 
 .map-preview {
   background:
-    radial-gradient(ellipse at 50% 80%, rgba(62, 232, 228, 0.28), transparent 42%),
-    radial-gradient(circle at 58% 48%, rgba(55, 233, 230, 0.2), transparent 34%),
+    radial-gradient(circle at 58% 48%, rgba(55, 233, 230, 0.18), transparent 34%),
     linear-gradient(rgba(106, 205, 236, 0.07) 1px, transparent 1px),
     linear-gradient(90deg, rgba(106, 205, 236, 0.07) 1px, transparent 1px),
     linear-gradient(180deg, #0b2637, #04131d);
-  background-size: auto, auto, 42px 42px, 42px 42px, auto;
+  background-size: auto, 42px 42px, 42px 42px, auto;
   box-shadow:
-    inset 0 0 36px rgba(48, 208, 235, 0.16),
-    inset 0 0 54px rgba(0, 0, 0, 0.26),
-    0 18px 34px rgba(0, 0, 0, 0.28);
+    inset 0 0 36px rgba(48, 208, 235, 0.12),
+    inset 0 0 42px rgba(0, 0, 0, 0.28);
 }
 
-.map-preview::before {
-  content: "";
-  position: absolute;
-  left: 14%;
-  right: 14%;
-  bottom: 54px;
-  height: 76px;
-  z-index: 0;
-  pointer-events: none;
-  border-radius: 50%;
-  background:
-    radial-gradient(ellipse at center, rgba(68, 236, 232, 0.26), rgba(47, 181, 210, 0.1) 42%, transparent 70%);
-  filter: blur(8px);
-  transform: perspective(460px) rotateX(68deg);
-}
-
+.map-preview::before,
 .map-preview::after {
-  content: "";
-  position: absolute;
-  left: 20%;
-  right: 20%;
-  bottom: 82px;
-  height: 1px;
-  z-index: 3;
-  pointer-events: none;
-  background: linear-gradient(90deg, transparent, rgba(191, 255, 255, 0.72), transparent);
-  box-shadow: 0 0 18px rgba(87, 237, 247, 0.64);
+  display: none;
 }
 
 .standard-map-stage {
   z-index: 1;
-  filter:
-    drop-shadow(0 22px 18px rgba(0, 0, 0, 0.38))
-    drop-shadow(0 0 16px rgba(78, 226, 238, 0.18));
 }
 
 .map-overlay {
@@ -1028,10 +999,7 @@ h1 {
   vector-effect: non-scaling-stroke;
   cursor: pointer;
   transition: fill 160ms ease, stroke 160ms ease, opacity 160ms ease;
-  filter:
-    drop-shadow(0 1px 0 rgba(221, 255, 255, 0.18))
-    drop-shadow(0 6px 5px rgba(0, 0, 0, 0.34))
-    drop-shadow(0 0 5px rgba(60, 218, 232, 0.34));
+  filter: drop-shadow(0 0 3px rgba(60, 218, 232, 0.24));
 }
 
 .map-province.level-1 {
@@ -1065,19 +1033,12 @@ h1 {
   stroke: #e9ffff;
   stroke-width: 3;
   outline: none;
-  filter:
-    drop-shadow(0 2px 0 rgba(255, 255, 255, 0.24))
-    drop-shadow(0 8px 7px rgba(0, 0, 0, 0.4))
-    drop-shadow(0 0 10px rgba(106, 248, 255, 0.62));
 }
 
 .map-province.selected {
   stroke: var(--amber);
   stroke-width: 4;
-  filter:
-    drop-shadow(0 2px 0 rgba(255, 255, 255, 0.22))
-    drop-shadow(0 9px 8px rgba(0, 0, 0, 0.42))
-    drop-shadow(0 0 12px rgba(255, 211, 108, 0.58));
+  filter: drop-shadow(0 0 5px rgba(255, 211, 108, 0.45));
 }
 
 .map-city-marker {
@@ -1088,7 +1049,6 @@ h1 {
   fill: rgba(71, 225, 237, 0.2);
   stroke: rgba(170, 251, 255, 0.7);
   stroke-width: 2.4;
-  filter: drop-shadow(0 0 10px rgba(74, 232, 245, 0.48));
 }
 
 .map-city-point {
@@ -1098,9 +1058,7 @@ h1 {
   transition: transform 160ms ease, fill 160ms ease;
   transform-box: fill-box;
   transform-origin: center;
-  filter:
-    drop-shadow(0 4px 3px rgba(0, 0, 0, 0.36))
-    drop-shadow(0 0 9px rgba(85, 242, 255, 0.82));
+  filter: drop-shadow(0 0 7px rgba(85, 242, 255, 0.72));
 }
 
 .map-city-marker:hover .map-city-point,
