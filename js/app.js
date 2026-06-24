@@ -6,7 +6,7 @@
 */
 (function () {
   const teamInfo = {
-    group: "组编号：________",
+    group: "组编号：2",
     members: [
       {
         role: "组长",
