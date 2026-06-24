@@ -211,8 +211,8 @@
 }
 
 .cover-member {
-  min-height: 58px;
-  padding: 9px 10px;
+  min-height: 86px;
+  padding: 12px 14px;
   border: 1px solid rgba(92, 179, 227, 0.22);
   border-radius: 5px;
   background: rgba(5, 23, 35, 0.74);
@@ -226,22 +226,25 @@
 .cover-member > span {
   display: block;
   color: var(--cyan);
-  font-size: 10px;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .cover-member strong {
   display: block;
-  min-height: 14px;
-  margin-top: 5px;
-  font-size: 12px;
+  min-height: 20px;
+  margin-top: 7px;
+  font-size: 17px;
+  line-height: 1.25;
 }
 
 .cover-member small {
   display: block;
-  min-height: 10px;
-  margin-top: 3px;
+  min-height: 16px;
+  margin-top: 5px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 12px;
+  line-height: 1.55;
 }
 
 .member-blank,
@@ -2627,33 +2630,34 @@ body.drawer-open {
 .cover-screen .cover-members {
   display: grid;
   grid-area: auto;
-  grid-template-columns: 190px 1fr;
+  grid-template-columns: 170px 1fr;
   gap: 24px;
-  padding: 16px 0 18px;
+  padding: 16px 0 14px;
   border-top: 1px solid rgba(117, 224, 255, 0.18);
 }
 
 .cover-screen .cover-member {
-  min-height: 108px;
-  padding: 12px 13px;
+  min-height: 132px;
+  padding: 13px 16px 14px;
   background: rgba(5, 23, 35, 0.76);
   backdrop-filter: blur(8px);
 }
 
 .cover-screen .cover-member strong {
-  min-height: 20px;
+  min-height: 22px;
   margin-top: 8px;
+  font-size: 18px;
 }
 
 .cover-screen .cover-member small {
-  min-height: 15px;
-  margin-top: 4px;
+  min-height: 18px;
+  margin-top: 5px;
 }
 
 .cover-screen .cover-member .member-task {
-  color: #7fa4b6;
-  font-size: 10px;
-  line-height: 1.55;
+  color: #a6cadb;
+  font-size: 12px;
+  line-height: 1.62;
   white-space: normal;
 }
 
