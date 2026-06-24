@@ -184,14 +184,6 @@
   font-weight: 600;
 }
 
-.cover-structure {
-  margin: 8px 0 0;
-  color: #8fb5c8;
-  font-size: 10px;
-  line-height: 1.5;
-  letter-spacing: 0.5px;
-}
-
 .cover-members {
   grid-area: members;
   display: grid;
@@ -2638,12 +2630,6 @@ body.drawer-open {
   border-top: 1px solid rgba(111, 204, 239, 0.28);
   border-bottom: 1px solid rgba(111, 204, 239, 0.12);
   font-size: 12px;
-}
-
-.cover-screen .cover-structure {
-  margin-top: 10px;
-  color: #9dc4d6;
-  font-size: 13px;
 }
 
 .cover-screen .cover-members {
