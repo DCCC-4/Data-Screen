@@ -1,7 +1,7 @@
 /*
-  组编号：待填写
-  组长：高乐霞（学号待填写）
-  组员：岳林（学号待填写）
+  组编号：2
+  组长：高乐霞（学号：2024212408；负责项目统筹、技术方案制定、全部代码开发与交互视觉优化）
+  组员：岳林（学号：2023212598；负责数据口径梳理、数据清洗补齐、结果核验与展示视频制作）
   用途：课程数据大屏科技风可视化样式
 */
 :root {
@@ -182,6 +182,14 @@
   font-family: "Segoe UI", Arial, sans-serif;
   font-size: 10px;
   font-weight: 600;
+}
+
+.cover-structure {
+  margin: 8px 0 0;
+  color: #8fb5c8;
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
 }
 
 .cover-members {
@@ -2630,6 +2638,12 @@ body.drawer-open {
   border-top: 1px solid rgba(111, 204, 239, 0.28);
   border-bottom: 1px solid rgba(111, 204, 239, 0.12);
   font-size: 12px;
+}
+
+.cover-screen .cover-structure {
+  margin-top: 10px;
+  color: #9dc4d6;
+  font-size: 13px;
 }
 
 .cover-screen .cover-members {
